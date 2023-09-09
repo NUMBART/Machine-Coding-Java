@@ -17,10 +17,11 @@ public class EqualExpense extends Expense {
     @Override
     public Map<User, Float> split() {
         HashMap<User, Float> splits = new HashMap<>();
+        Float splitAmount = (float)Math.round(paidAmount*100/payees.size())/100;
         for(User payee: payees) {
-            // naive approach - 2 decimal places and matched sum not handled
-            splits.put(payee, this.paidAmount/payees.size());
+            splits.put(payee, splitAmount);
         }
+        splits.put(payees.get(0), paidAmount - splitAmount*(payees.size()-1));
         return splits;
     }
 
