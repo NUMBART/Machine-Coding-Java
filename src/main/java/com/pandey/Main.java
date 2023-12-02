@@ -1,7 +1,10 @@
 package com.pandey;
 
+import com.pandey.models.AtmMachine;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Initial Code!");
+        AtmMachine atmMachine = new AtmMachine();
+        atmMachine.start();
     }
 }
